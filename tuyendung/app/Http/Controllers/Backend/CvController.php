@@ -7,5 +7,8 @@ use Illuminate\Http\Request;
 
 class CvController extends Controller
 {
+    public function cv (){
+        return view ('Backend/cv');
+    }
     //
 }
