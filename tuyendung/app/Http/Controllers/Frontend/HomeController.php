@@ -33,6 +33,8 @@ class HomeController extends Controller
 
     }
 
-    
+    public function taocv (){
+        return view ('Frontend/taocv');
+    }
     //
 }

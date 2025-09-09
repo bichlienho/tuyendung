@@ -5,11 +5,16 @@
           <div class="container">
             <div class="page-title">
               <h3>QUẢN LÝ VIỆC LÀM</h3>
+              @if (session('success'))
+                <div class="alert alert-success">{{session('success')}}</div>
+              @endif
             </div>
             <div class="row">
               <div class="col-md-12 col-lg-12">
                 <div class="card">
-                  <div class="card-header">Basic DataTables Table</div>
+                  <div class="card-header">
+                    <a href="{{route('backend.vieclam.create')}}"  class="btn btn-primary mb-3">➕ Thêm Việc Làm</a>
+                  </div>
                   <div class="card-body">
                     <p class="card-title"></p>
                     <table
@@ -20,83 +25,44 @@
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Name</th>
-                          <th>Salary</th>
-                          <th>Country</th>
-                          <th>City</th>
+                          <th>Logo</th>
+                          <th>Tiêu đề</th>
+                          <th>Công ty</th>
+                          <th>Lương</th>
+                          <th>Hạn nộp</th>
+                          <th>Trạng thái</th>
+                          <th>Hành động</th>
                         </tr>
                       </thead>
                       <tbody>
+                        @forelse($vieclams as $vl)
                         <tr>
-                          <td>1</td>
-                          <td>Dakota Rice</td>
-                          <td>$36,738</td>
-                          <td>United States</td>
-                          <td>Oud-Turnhout</td>
+                          <td>{{$vl->id}}</td>
+                          <td>
+                              @if($vl->logo)
+                                 <img src="{{asset('public/')}}/{{$vl->logo}}" width="100">
+                              @else
+                                  <span class="text-muted">Không có logo</span>
+                              @endif
+                          </td>
+
+                          <td>{{ $vl->title }}</td>
+                          <td>{{ $vl->company }}</td>
+                          <td>{{ number_format($vl->salary_min, 0, ',', '.') }} - {{ number_format($vl->salary_max, 0, ',', '.') }} VNĐ</td>
+                          <td>{{ $vl->deadline->format('d/m/Y') }}</td>
+                          <td>{!! $vl->is_active ? '<span class="badge bg-success">Hiển thị</span>' : '<span class="badge bg-danger">Ẩn</span>' !!}</td>
+                          <td>
+                              <a href="{{ route('backend.vieclam.edit', $vl->id) }}" class="btn btn-sm btn-warning">✏️ Sửa</a>
+                              <a href="{{ route('backend.vieclam.delete', $vl->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa?')">
+                                  🗑️ Xóa
+                              </a>
+                          </td>
                         </tr>
+                         @empty
                         <tr>
-                          <td>2</td>
-                          <td>Minerva Hooper</td>
-                          <td>$23,789</td>
-                          <td>Curaçao</td>
-                          <td>Sinaai-Waas</td>
+                            <td colspan="7" class="text-center">Chưa có việc làm nào.</td>
                         </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Sage Rodriguez</td>
-                          <td>$56,142</td>
-                          <td>Netherlands</td>
-                          <td>Baileux</td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Philip Chaney</td>
-                          <td>$38,735</td>
-                          <td>Korea, South</td>
-                          <td>Overland Park</td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>Doris Greene</td>
-                          <td>$63,542</td>
-                          <td>Malawi</td>
-                          <td>Feldkirchen in Kärnten</td>
-                        </tr>
-                        <tr>
-                          <td>6</td>
-                          <td>Mason Porter</td>
-                          <td>$78,615</td>
-                          <td>Chile</td>
-                          <td>Gloucester</td>
-                        </tr>
-                        <tr>
-                          <td>7</td>
-                          <td>Allisa Sanches</td>
-                          <td>$28,615</td>
-                          <td>Columbia</td>
-                          <td>Nigger</td>
-                        </tr>
-                        <tr>
-                          <td>8</td>
-                          <td>Peter Benhams</td>
-                          <td>$33,215</td>
-                          <td>Ecuador</td>
-                          <td>Holster</td>
-                        </tr>
-                        <tr>
-                          <td>9</td>
-                          <td>Bramson Adams</td>
-                          <td>$109,222</td>
-                          <td>Philippines</td>
-                          <td>Camp John</td>
-                        </tr>
-                        <tr>
-                          <td>10</td>
-                          <td>Jessie Williams</td>
-                          <td>$55,123</td>
-                          <td>Malaysia</td>
-                          <td>Glosterine</td>
-                        </tr>
+                        @endforelse
                       </tbody>
                     </table>
                   </div>

@@ -26,7 +26,24 @@ Route::get('/quen-mat-khau',[SecureController::class,'quenmatkhau'])->name('quen
 
 //đường dẫn backend
 Route::get('/quan-li',[ManagerController::class,'index'])->name('quanli');
-Route::get('/quan-li-viec-lam',[JobController::class,'vieclam'])->name('quanlivieclam');
+// Danh sách
+Route::get('/quan-li-viec-lam', [JobController::class, 'vieclam'])->name('quanlivieclam');
+
+// Form thêm
+Route::get('/them-viec-lam', [JobController::class, 'create'])->name('backend.vieclam.create');
+
+// Xử lý thêm
+Route::post('/them-viec-lam', [JobController::class, 'store'])->name('backend.vieclam.store');
+
+// Form sửa
+Route::get('/sua-viec-lam/{id}', [JobController::class, 'suavieclam'])->name('backend.vieclam.edit');
+
+// Xử lý sửa
+Route::put('/sua-viec-lam/{id}', [JobController::class, 'update'])->name('backend.vieclam.update');
+
+//xử lý xóa 
+Route::get('/xoa-viec-lam/{id}', [JobController::class, 'xoavieclam'])->name('backend.vieclam.delete');
+
 Route::get('/quan-li-cv',[CvController::class,'cv'])->name('quanlicv');
 Route::get('/quan-li-nha-tuyen-dung',[NhatuyendungController::class,'nhatuyendung'])->name('quanlinhatuyendung');
 Route::get('/quan-li-ngươi-dung',[UserController::class,'user'])->name('quanliuser');

@@ -68,8 +68,8 @@
                     <ul class="nav navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <div class="nav-dropdown">
-                                <a href="#" id="nav1" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-link"></i> <span>Quick Links</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
+                                <a href="{{route('home')}}" id="nav1" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-link"></i> <span>View web</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end nav-link-menu" aria-labelledby="nav1">
                                     <ul class="nav-list">
