@@ -2,19 +2,12 @@
 @section('content')
 
 <!-- Hero Section (Banner Slide) -->
-<section class="bg-primary text-white py-5">
+<section class="bg-white text-black py-5">
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-6 text-center">
                 <h1 class="display-4 fw-bold">Tìm việc làm phù hợp với bạn</h1>
                 <p class="lead mb-4">Khám phá hàng nghìn cơ hội nghề nghiệp từ các công ty hàng đầu Việt Nam</p>
-
-                <!-- Search Form -->
-                <form class="d-flex flex-column flex-md-row gap-2 mb-4">
-                    <input type="text" class="form-control" placeholder="Vị trí, công ty, từ khóa...">
-                    <input type="text" class="form-control" placeholder="Tất cả địa điểm">
-                    <button class="btn btn-light btn-lg">Tìm kiếm</button>
-                </form>
 
                 <!-- Tags / Skills -->
                 <div class="d-flex flex-wrap justify-content-center gap-2">
@@ -35,137 +28,36 @@
     <div class="container">
         <h2 class="text-center mb-4">Việc làm HOT dành cho sinh viên & thực tập sinh</h2>
         <div class="row g-4">
-            <!-- Job Card 1 -->
+            @foreach ($vieclam as $job)
             <div class="col-md-6 col-lg-4">
-                <div class="job-card card h-20 shadow-sm border-0">
+                <div class="job-card card h-100 shadow-sm border-0">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-2">
-                            <img src="{{asset('public/frontend')}}/img/it1.png" alt="Company" class="rounded-circle me-2">
-                            <h5 class="mb-0">Lập trình viên PHP</h5>
+                        <div class="d-flex align-items-center  ">
+                            @if($job->logo)
+                                <img src="{{asset('public/')}}/{{$job->logo}}"  alt="{{ $job->company }}" class="rounded-circle me-3 " style="width: 200px; height: 200px; object-fit: cover;">
+                            @else
+                            <img src="{{asset('public/frontend')}}/img/it1.png" alt="Company" class="rounded-circle me-3" style="width: 40px; height: 40px; object-fit: cover;">
+                            @endif
+                            <p class="text-muted small">{{ $job->company }}</p>
                         </div>
-                        <p class="text-muted small">FPT Software</p>
+                        <h5 class="mb-0">{{ $job->title }}</h5>
+                        
                         <div class="d-flex justify-content-between align-items-center mt-2">
                             <span class="badge bg-danger">HOT</span>
-                            <span class="text-muted small">Hà Nội</span>
+                            <span class="text-muted small">{{ $job->location }}</span>
                         </div>
                         <div class="mt-2">
-                            <small class="text-muted">20 - 25 triệu</small><br>
-                            <small class="text-muted">Full-time</small>
+                            <small class="text-muted">{{ number_format($job->salary_min) }} - {{ number_format($job->salary_max) }} triệu</small><br>
+                            <small class="text-muted">{{$job->type}}</small>
                         </div>
                         <a href="#" class="btn btn-primary w-100 mt-3">Ứng tuyển</a>
                     </div>
                 </div>
             </div>
-
-            <!-- Job Card 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="job-card card h-20 shadow-sm border-0">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-2">
-                            <img src="{{asset('public/frontend')}}/img/it2.png" alt="Company" class="rounded-circle me-2">
-                            <h5 class="mb-0">DevOps Engineer</h5>
-                        </div>
-                        <p class="text-muted small">Grab Vietnam</p>
-                        <div class="d-flex justify-content-between align-items-center mt-2">
-                            <span class="badge bg-warning">Urgent</span>
-                            <span class="text-muted small">TP.HCM</span>
-                        </div>
-                        <div class="mt-2">
-                            <small class="text-muted">30 - 50 triệu</small><br>
-                            <small class="text-muted">Full-time</small>
-                        </div>
-                        <a href="#" class="btn btn-primary w-100 mt-3">Ứng tuyển</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Job Card 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="job-card card h-20 shadow-sm border-0">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-2">
-                            <img src="{{asset('public/frontend')}}/img/it3.jpg" alt="Company" class="rounded-circle me-2">
-                            <h5 class="mb-0">Business Analyst</h5>
-                        </div>
-                        <p class="text-muted small">Meta Corporation</p>
-                        <div class="d-flex justify-content-between align-items-center mt-2">
-                            <span class="badge bg-danger">HOT</span>
-                            <span class="text-muted small">Hà Nội</span>
-                        </div>
-                        <div class="mt-2">
-                            <small class="text-muted">18 - 30 triệu</small><br>
-                            <small class="text-muted">Full-time</small>
-                        </div>
-                        <a href="#" class="btn btn-primary w-100 mt-3">Ứng tuyển</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Job Card 4 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="job-card card h-20 shadow-sm border-0">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-2">
-                            <img src="{{asset('public/frontend')}}/img/it4.png" alt="Company" class="rounded-circle me-2">
-                            <h5 class="mb-0">UI/UX Designer</h5>
-                        </div>
-                        <p class="text-muted small">TikTok</p>
-                        <div class="d-flex justify-content-between align-items-center mt-2">
-                            <span class="badge bg-warning">Urgent</span>
-                            <span class="text-muted small">Hà Nội</span>
-                        </div>
-                        <div class="mt-2">
-                            <small class="text-muted">20 - 25 triệu</small><br>
-                            <small class="text-muted">Full-time</small>
-                        </div>
-                        <a href="#" class="btn btn-primary w-100 mt-3">Ứng tuyển</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Job Card 5 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="job-card card h-20 shadow-sm border-0">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-2">
-                            <img src="{{asset('public/frontend')}}/img/it5.png" alt="Company" class="rounded-circle me-2">
-                            <h5 class="mb-0">Frontend Developer</h5>
-                        </div>
-                        <p class="text-muted small">VNG Corp</p>
-                        <div class="d-flex justify-content-between align-items-center mt-2">
-                            <span class="badge bg-danger">HOT</span>
-                            <span class="text-muted small">TP.HCM</span>
-                        </div>
-                        <div class="mt-2">
-                            <small class="text-muted">25 - 35 triệu</small><br>
-                            <small class="text-muted">Full-time</small>
-                        </div>
-                        <a href="#" class="btn btn-primary w-100 mt-3">Ứng tuyển</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Job Card 6 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="job-card card h-20 shadow-sm border-0">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-2">
-                            <img src="{{asset('public/frontend')}}/img/it1.png" alt="Company" class="rounded-circle me-2">
-                            <h5 class="mb-0">Data Analyst</h5>
-                        </div>
-                        <p class="text-muted small">Shopee Vietnam</p>
-                        <div class="d-flex justify-content-between align-items-center mt-2">
-                            <span class="badge bg-warning">Urgent</span>
-                            <span class="text-muted small">Hà Nội</span>
-                        </div>
-                        <div class="mt-2">
-                            <small class="text-muted">20 - 30 triệu</small><br>
-                            <small class="text-muted">Full-time</small>
-                        </div>
-                        <a href="#" class="btn btn-primary w-100 mt-3">Ứng tuyển</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            <em class="text-muted text-center ">
+                Hiển thị {{ $vieclam->firstItem() }} - {{ $vieclam->lastItem() }} trong tổng số {{ $vieclam->total() }} việc làm
+            </em>
         </div>
         <div class="text-center mt-4">
             <a href="{{ route('job') }}" class="btn btn-primary px-5">Xem tất cả việc làm</a>
@@ -196,5 +88,6 @@
         </div>
     </div>
 </section>
+
 
 @endsection

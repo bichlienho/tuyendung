@@ -15,7 +15,7 @@ use App\Http\Controllers\Backend\AuthController;
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/viec-lam',[HomeController::class,'job'])->name('job');
 Route::get('/dang-tin',[HomeController::class,'dangtin'])->name('dangtin');
-Route::get('/chi-tiet-viec-lam',[HomeController::class,'chitietvieclam'])->name('chitietvieclam');
+Route::get('/chi-tiet-viec-lam/{id}',[HomeController::class,'chitietvieclam'])->name('chitietvieclam');
 Route::get('/chi-tiet-cong-ty',[HomeController::class,'chitietcongty'])->name('chitietcongty');
 Route::get('/tao-cv',[HomeController::class,'taocv'])->name('taocv');
 

@@ -29,7 +29,6 @@
                             <li><a class="dropdown-item" href="#">Việc làm Tester / QA</a></li>
                             <li><a class="dropdown-item" href="#">Việc làm DevOps</a></li>
                             <li><a class="dropdown-item" href="#">Việc làm Thực tập sinh IT</a></li>
-                            <li><a class="dropdown-item" href="#">Việc làm Chuyển ngành sang IT</a></li>
                             <li><a class="dropdown-item" href="#">Việc làm Kỹ sư phần mềm</a></li>
                         </ul>
                     </div>
@@ -39,28 +38,9 @@
                         Tạo CV
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cvDropdown">
-                        <!-- Mẫu CV theo style -->
-                        <li><h6 class="dropdown-header">Mẫu CV theo style </h6></li>
-                        <li><a class="dropdown-item" href="#">Mẫu CV Đơn giản</a></li>
-                        <li><a class="dropdown-item" href="#">Mẫu CV Ấn tượng</a></li>
-                        <li><a class="dropdown-item" href="#">Mẫu CV Chuyên nghiệp</a></li>
-                        <li><a class="dropdown-item" href="#">Mẫu CV Hiện đại</a></li>
-
-                        <!-- Mẫu CV theo vị trí -->
-                        <li><hr class="dropdown-divider"></li>
-                        <li><h6 class="dropdown-header">Mẫu CV theo vị trí ứng tuyển </h6></li>
-                        <li><a class="dropdown-item" href="#">Nhân viên kinh doanh</a></li>
-                        <li><a class="dropdown-item" href="#">Lập trình viên</a></li>
-                        <li><a class="dropdown-item" href="#">Nhân viên kế toán</a></li>
-                        <li><a class="dropdown-item" href="#">Chuyên viên marketing</a></li>
-
-                        <!-- Các chức năng khác -->
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Quản lý CV</a></li>
+                        <li><a class="dropdown-item" href="{{route('taocv')}}">Tạo CV</a></li>
                         <li><a class="dropdown-item" href="#">Tải CV lên</a></li>
                         <li><a class="dropdown-item" href="#">Hướng dẫn viết CV</a></li>
-                        <li><a class="dropdown-item" href="#">Quản lý Cover Letter</a></li>
-                        <li><a class="dropdown-item" href="#">Mẫu Cover Letter</a></li>
                     </ul>
                 </div>
                         
@@ -71,8 +51,14 @@
                     
             </div>
         </div>
+        
     </nav>
-
+    <!-- Search Form -->
+    <form class="d-flex flex-column flex-md-row gap-2 mb-4">
+        <input type="text" class="form-control" placeholder="Vị trí, công ty, từ khóa...">
+        <input type="text" class="form-control" placeholder="Tất cả địa điểm">
+        <button class="btn btn-light btn-lg">Tìm kiếm</button>
+    </form>
     <div class="container mt-4">
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -105,6 +91,7 @@
                         @endauth
                     </ul>
                 </div>
+                
                 <div class="col-md-4">
                     <h5>Liên hệ</h5>
                     <address>

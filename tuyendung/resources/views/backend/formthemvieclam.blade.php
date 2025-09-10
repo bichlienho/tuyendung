@@ -55,9 +55,14 @@
                     </div>
 
                     <div class="mb-3">
+                        <label class="form-label">Trạng thái hiển thị</label>
                         <div class="form-check">
-                            <input type="checkbox" name="is_active" id="is_active" class="form-check-input" value="1" {{ old('is_active', true) ? 'checked' : '' }}>
-                            <label class="form-check-label" for="is_active">Hiển thị công khai</label>
+                            <input type="radio" name="is_active" id="is_active_yes" class="form-check-input" value="1" {{ old('is_active', true) == 1 ? 'checked' : '' }}>
+                            <label class="form-check-label" for="is_active_yes">Hiển thị</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="is_active" id="is_active_no" class="form-check-input" value="0" {{ old('is_active', true) == 0 ? 'checked' : '' }}>
+                            <label class="form-check-label" for="is_active_no">Ẩn</label>
                         </div>
                     </div>
                 </div>

@@ -50,7 +50,13 @@
                           <td>{{ $vl->company }}</td>
                           <td>{{ number_format($vl->salary_min, 0, ',', '.') }} - {{ number_format($vl->salary_max, 0, ',', '.') }} VNĐ</td>
                           <td>{{ $vl->deadline->format('d/m/Y') }}</td>
-                          <td>{!! $vl->is_active ? '<span class="badge bg-success">Hiển thị</span>' : '<span class="badge bg-danger">Ẩn</span>' !!}</td>
+                          <td>
+                              @if($vl->is_active == 1)
+                                  <span class="badge bg-success">Hiển thị</span>
+                              @else
+                                  <span class="badge bg-secondary">Ẩn</span>
+                              @endif
+                          </td>
                           <td>
                               <a href="{{ route('backend.vieclam.edit', $vl->id) }}" class="btn btn-sm btn-warning">✏️ Sửa</a>
                               <a href="{{ route('backend.vieclam.delete', $vl->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa?')">

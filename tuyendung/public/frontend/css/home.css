@@ -16,10 +16,21 @@
     }
 
     .job-card .card-body {
-        padding: 1.25rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+
+    /*  hình ảnh logo tròn, vừa khung */
+    .job-card .card-body .d-flex img {
+        width: 200px;
+        height: 40px;
+        object-fit: cover; 
+        border-radius: 50%; 
+        border: 2px solid #ddd; 
+        margin-right: auto;
+        margin-left: auto;
     }
 
     /* Logo công ty - luôn tròn, vừa khung */
@@ -59,7 +70,18 @@
     .job-card .btn {
         margin-top: auto;
     }
+    /* phân trang */
+    .page-item.active .page-link {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: bold;
+    border-color: #0d6efd;
+    }
 
+    .page-link {
+        padding: 8px 12px;
+        border-radius: 5px;
+    }
     /* ==============================
         HERO BANNER - ẢNH KHÔNG BỂ
     ============================== */
@@ -133,7 +155,15 @@
     .job-card-vl .d-flex.align-items-start {
         min-height: 50px;
     }
-
+    @media (max-width: 576px) {
+      .job-card-vl {
+          padding: 1rem;
+      }
+      .job-card-vl .d-flex {
+          flex-direction: column;
+          align-items: flex-start;
+      }
+    }
     /* ==================================
     chi tiết việc làm
     ================================== */
