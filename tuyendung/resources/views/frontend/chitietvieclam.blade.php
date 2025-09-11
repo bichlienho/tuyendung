@@ -47,9 +47,19 @@
             </p>
 
             <!-- Skills Tags -->
-            <div class="d-flex flex-wrap gap-2 mb-4">
+            <!-- <div class="d-flex flex-wrap gap-2 mb-4">
                 @foreach(explode(',', $vieclam->requirements) as $req)
                     <span class="badge bg-light text-dark border">{{ trim($req) }}</span>
+                @endforeach
+            </div>  -->
+            
+            <!-- Skills Tags fix-->
+            <div class="d-flex flex-wrap gap-2 mb-4">
+                @foreach(explode(',', $vieclam->requirements) as $req)
+                    <span class="badge bg-light text-dark border" 
+                        style="white-space: normal; word-wrap: break-word; max-width: 80%;">
+                        {{ trim($req) }}
+                    </span>
                 @endforeach
             </div>
 
@@ -64,16 +74,27 @@
 
             <!-- Chi tiết công việc -->
             <div class="row">
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <h5><i class="fas fa-tasks me-2"></i>Mô tả công việc</h5>
                         <ul class="text-muted">
                                 <li>{{ ($vieclam->description) }}</li>
                         </ul>
-                    </div>
+                    </div> -->
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-tasks me-2"></i>Mô tả công việc</h5>
+                        <ul class="text-muted">
+                            @foreach (explode("\n", $vieclam->description) as $line)
+                                <li>{{ e(trim($line)) }}</li>
+                            @endforeach
+                        </ul>
+                    </div>   
+
                     <div class="col-md-6">
                         <h5><i class="fas fa-clipboard-check me-2"></i>Yêu cầu ứng viên</h5>
                         <ul class="text-muted">
-                                <li> {{$vieclam->requirements}} </li>
+                            @foreach (explode("\n", $vieclam->requirements) as $line)
+                                <li>{{ e(trim($line)) }}</li>
+                            @endforeach
                         </ul>
                     </div>
             </div>
@@ -81,11 +102,9 @@
             <div class="mt-4">
                     <h5><i class="fas fa-gift me-2"></i>Quyền lợi</h5>
                     <ul class="text-muted">
-                        <li> @foreach(explode(',', $vieclam->benefits) as $benefit)
-                                <div class="d-flex align-items-center text-muted small">
-                                    <i class="fas fa-coins me-1"></i> {{ trim($benefit) }}
-                                </div>
-                            @endforeach</li>
+                            @foreach (explode("\n", $vieclam->benefits) as $line)
+                                <li><i class="fas fa-coins me-1"></i>{{ e(trim($line)) }}</li>
+                            @endforeach
                     </ul>
             </div>
 
@@ -99,7 +118,10 @@
                             @endif
                         <div>
                                 <h6>{{ $vieclam->company }}</h6>
-                                <p class="text-muted small mb-1">{{$vieclam->company_info}}</p>
+                                <!-- <p class="text-muted small mb-1">{{$vieclam->company_info}}</p> -->
+                                @foreach (explode("\n", $vieclam->company_info) as $line)
+                                    <p class="text-muted small mb-1">{{ e(trim($line)) }}</p>
+                                @endforeach
                                 <p class="text-muted small mb-0"><i class="fas fa-map-marker-alt me-1"></i> {{ $vieclam->location }}</p>
                         </div>
                     </div>
@@ -107,7 +129,8 @@
 
             <!-- Nút Ứng tuyển -->
             <div class="mt-5 d-flex justify-content-end">
-                    <a href="#" class="btn btn-primary btn-lg">Ứng tuyển ngay</a>
+                    <a href="#" class="btn btn-primary btn-lg mx-2">Ứng tuyển ngay</a>
+                    <a href="#" class="btn btn-info btn-lg mx-2">Lưu tin</a>
             </div>
         </div>
 
@@ -144,7 +167,10 @@
                                 <p class="text-muted small mb-3">{{ Str::limit($job->description, 80) }}</p>
                                 <div class="d-flex flex-wrap gap-2 mb-3">
                                     @foreach(explode(',', $job->requirements) as $req)
-                                        <span class="badge bg-light text-dark border">{{ trim($req) }}</span>
+                                        <span class="badge bg-light text-dark border"
+                                            style="white-space: normal; word-wrap: break-word; max-width: 80%;">
+                                            {{ trim($req) }} 
+                                        </span>
                                     @endforeach
                                 </div>
                                 <div class="d-flex justify-content-end gap-2">

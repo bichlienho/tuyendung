@@ -68,11 +68,20 @@
                     <ul class="nav navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <div class="nav-dropdown">
-                                <a href="{{route('home')}}" id="nav1" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-link"></i> <span>View web</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
+                                <a href="{{route('home')}}"  class="nav-item nav-link dropdown-toggle text-secondary">
+                                    <i class="fas fa-eye"></i> <span>View Web</span> </i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <div class="nav-dropdown">
+                                <a href="#" id="nav1" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-link"></i> <span>More</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end nav-link-menu" aria-labelledby="nav1">
                                     <ul class="nav-list">
+                                        <li><a href="{{route('home')}}" class="dropdown-item"><i class="fas fa-eye"></i></i> HOME</a></li>
+                                        <div class="dropdown-divider"></div>
                                         <li><a href="" class="dropdown-item"><i class="fas fa-list"></i> Access Logs</a></li>
                                         <div class="dropdown-divider"></div>
                                         <li><a href="" class="dropdown-item"><i class="fas fa-database"></i> Back ups</a></li>

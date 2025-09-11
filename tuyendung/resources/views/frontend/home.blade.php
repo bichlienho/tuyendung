@@ -27,12 +27,13 @@
 <section class="py-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-4">Việc làm HOT dành cho sinh viên & thực tập sinh</h2>
+
         <div class="row g-4">
             @foreach ($vieclam as $job)
             <div class="col-md-6 col-lg-4">
                 <div class="job-card card h-100 shadow-sm border-0">
                     <div class="card-body">
-                        <div class="d-flex align-items-center  ">
+                        <!-- <div class="d-flex align-items-center  ">
                             @if($job->logo)
                                 <img src="{{asset('public/')}}/{{$job->logo}}"  alt="{{ $job->company }}" class="rounded-circle me-3 " style="width: 200px; height: 200px; object-fit: cover;">
                             @else
@@ -40,14 +41,37 @@
                             @endif
                             <p class="text-muted small">{{ $job->company }}</p>
                         </div>
-                        <h5 class="mb-0">{{ $job->title }}</h5>
-                        
+                        <hr>
+                        <h5 class="mb-0">{{ $job->title }}</h5> -->
+                    
+
+                        <div class="position-relative">
+                            <span class="badge bg-danger position-absolute top-0 end-0 p-2">HOT</span>
+                            
+                            <div class="text-center mb-3">
+                                @if($job->logo)
+                                    <img src="{{asset('public/')}}/{{$job->logo}}" 
+                                        alt="{{ $job->company }}" 
+                                        class="rounded-circle mb-2" 
+                                        style="width: 180px; height: 180px; object-fit: cover;">
+                                @else
+                                    <img src="{{asset('public/frontend')}}/img/it1.png" 
+                                        alt="Company" 
+                                        class="rounded-circle mb-2" 
+                                        style="width: 180px; height: 180px; object-fit: cover;">
+                                @endif
+                                <p class="text-muted small mb-0" style="font-size: 1rem;">{{ $job->company }}</p>
+                            </div>
+                            <hr>
+                            <h5 class="mb-0">{{ $job->title }}</h5>  
+                        </div>
+
                         <div class="d-flex justify-content-between align-items-center mt-2">
-                            <span class="badge bg-danger">HOT</span>
-                            <span class="text-muted small">{{ $job->location }}</span>
+                            <!-- <span class="badge bg-danger">HOT</span> -->
+                            <span class="text-muted small"> <i class="fas fa-map-pin"></i> {{ $job->location }}</span>
                         </div>
                         <div class="mt-2">
-                            <small class="text-muted">{{ number_format($job->salary_min) }} - {{ number_format($job->salary_max) }} triệu</small><br>
+                            <small class="text-muted"> <i class="fas fa-dollar-sign"></i> {{ number_format($job->salary_min) }} - {{ number_format($job->salary_max) }} triệu</small><br>
                             <small class="text-muted">{{$job->type}}</small>
                         </div>
                         <a href="#" class="btn btn-primary w-100 mt-3">Ứng tuyển</a>
@@ -59,6 +83,8 @@
                 Hiển thị {{ $vieclam->firstItem() }} - {{ $vieclam->lastItem() }} trong tổng số {{ $vieclam->total() }} việc làm
             </em>
         </div>
+
+        
         <div class="text-center mt-4">
             <a href="{{ route('job') }}" class="btn btn-primary px-5">Xem tất cả việc làm</a>
         </div>

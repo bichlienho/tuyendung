@@ -21,8 +21,14 @@
                 <!-- Password -->
                 <div class="mb-3 password-wrapper">
                 <label for="password" class="form-label">Mật khẩu <span class="text-danger">*</span></label>
-                <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu của bạn" required>
-                <i class="fas fa-eye eye-icon" id="togglePassword"></i>
+                <!-- <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu của bạn" required>
+                <i class="fas fa-eye eye-icon" id="togglePassword"></i> -->
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu của bạn" required>
+                    <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
                 </div>
 
                 <!-- Forgot Password -->
@@ -45,12 +51,19 @@
 
   <!-- Toggle Password Script -->
   <script>
+    // Toggle cho ô mật khẩu
     document.getElementById('togglePassword').addEventListener('click', function () {
-      const passwordInput = document.getElementById('password');
-      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordInput.setAttribute('type', type);
-      this.classList.toggle('fa-eye');
-      this.classList.toggle('fa-eye-slash');
+        const passwordInput = document.getElementById('password');
+        const icon = this.querySelector('i');
+        if (passwordInput.getAttribute('type') === 'password') {
+            passwordInput.setAttribute('type', 'text');
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.setAttribute('type', 'password');
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
     });
   </script>
 

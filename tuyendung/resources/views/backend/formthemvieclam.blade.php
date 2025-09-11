@@ -1,7 +1,7 @@
 @extends('backend/layout')
 @section('content')
 
-    <div class="container mt-4">
+    <div class="container mt-4 mb-5   ">
         <h2>➕ Thêm Việc Làm Mới</h2>
 
         <form action="{{ route('backend.vieclam.store') }}" method="POST" enctype="multipart/form-data">

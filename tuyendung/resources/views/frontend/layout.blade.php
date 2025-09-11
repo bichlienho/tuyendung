@@ -11,54 +11,66 @@
     <link rel="stylesheet" href="{{asset('public/frontend')}}/css/dangnhap.css">
     <link rel="stylesheet" href="{{asset('public/frontend')}}/css/quenmatkhau.css">
 </head>
+
+
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="{{route('home')}}">MYCODE-VIỆC LÀM</a>
-            <div class="navbar-nav ms-auto">
-                    <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"  id="jobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Việc làm
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="jobDropdown">
-                            <li><a class="dropdown-item" href="{{route('job')}}">Việc làm Lập trình viên PHP</a></li>
-                            <li><a class="dropdown-item" href="#">Việc làm Lập trình viên Java</a></li>
-                            <li><a class="dropdown-item" href="#">Việc làm Frontend Developer</a></li>
-                            <li><a class="dropdown-item" href="#">Việc làm Backend Developer</a></li>
-                            <li><a class="dropdown-item" href="#">Việc làm Fullstack Developer</a></li>
-                            <li><a class="dropdown-item" href="#">Việc làm Tester / QA</a></li>
-                            <li><a class="dropdown-item" href="#">Việc làm DevOps</a></li>
-                            <li><a class="dropdown-item" href="#">Việc làm Thực tập sinh IT</a></li>
-                            <li><a class="dropdown-item" href="#">Việc làm Kỹ sư phần mềm</a></li>
-                        </ul>
-                    </div>
-                
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="cvDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Tạo CV
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cvDropdown">
-                        <li><a class="dropdown-item" href="{{route('taocv')}}">Tạo CV</a></li>
-                        <li><a class="dropdown-item" href="#">Tải CV lên</a></li>
-                        <li><a class="dropdown-item" href="#">Hướng dẫn viết CV</a></li>
-                    </ul>
-                </div>
+    <div class="sticky-top">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container">
+                    <a class="navbar-brand" href="{{route('home')}}">MYCODE-VIỆC LÀM</a>
+                    <div class="navbar-nav ms-auto">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"  id="jobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Việc làm
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="jobDropdown">
+                                    <li><a class="dropdown-item" href="{{route('job')}}">Việc làm Lập trình viên PHP</a></li>
+                                    <li><a class="dropdown-item" href="#">Việc làm Lập trình viên Java</a></li>
+                                    <li><a class="dropdown-item" href="#">Việc làm Frontend Developer</a></li>
+                                    <li><a class="dropdown-item" href="#">Việc làm Backend Developer</a></li>
+                                    <li><a class="dropdown-item" href="#">Việc làm Fullstack Developer</a></li>
+                                    <li><a class="dropdown-item" href="#">Việc làm Tester / QA</a></li>
+                                    <li><a class="dropdown-item" href="#">Việc làm DevOps</a></li>
+                                    <li><a class="dropdown-item" href="#">Việc làm Thực tập sinh IT</a></li>
+                                    <li><a class="dropdown-item" href="#">Việc làm Kỹ sư phần mềm</a></li>
+                                </ul>
+                            </div>
                         
-                <a class="nav-link" href="{{route('dangtin')}}">Nhà tuyển dụng Đăng tin</a>
-                <a class="nav-link" href="{{route('home')}}"> Đăng xuất</a>
-                <a class="nav-link" href="{{route('dangnhap')}}">Đăng nhập</a>
-                <a class="nav-link" href="{{route('dangki')}}">Đăng ký</a>
-                    
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="cvDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tạo CV
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cvDropdown">
+                                <li><a class="dropdown-item" href="{{route('taocv')}}">Tạo CV</a></li>
+                                <li><a class="dropdown-item" href="#">Tải CV lên</a></li>
+                                <li><a class="dropdown-item" href="#">Hướng dẫn viết CV</a></li>
+                            </ul>
+                        </div>
+                                
+                        <a class="nav-link" href="{{route('dangtin')}}">Nhà tuyển dụng Đăng tin</a>
+                        <a class="nav-link" href="{{route('home')}}"> Đăng xuất</a>
+                        <a class="nav-link" href="{{route('dangnhap')}}">Đăng nhập</a>
+                        <a class="nav-link" href="{{route('dangki')}}">Đăng ký</a>
+                            
+                    </div>
+                </div>
+                
+            </nav>
+
+            <!-- Search Form -->
+            <div class="container mt-2 bg-info py-1 rounded-pill  ">
+                <form class="d-flex flex-column flex-md-row gap-2 mb-0">
+                    <input type="text" class="form-control m-3 rounded-pill border border-secondary" placeholder="Vị trí, công ty, từ khóa...">
+                    <input type="text" class="form-control m-3 rounded-pill border border-secondary" placeholder="Tất cả địa điểm">
+                    <button class="btn btn-primary btn-lg  m-3 rounded-pill border border-secondary">Tìm</button>
+                </form>
             </div>
         </div>
-        
-    </nav>
-    <!-- Search Form -->
-    <form class="d-flex flex-column flex-md-row gap-2 mb-4">
-        <input type="text" class="form-control" placeholder="Vị trí, công ty, từ khóa...">
-        <input type="text" class="form-control" placeholder="Tất cả địa điểm">
-        <button class="btn btn-light btn-lg">Tìm kiếm</button>
-    </form>
+    </div>
+    
+    <!-- Content Container -->
     <div class="container mt-4">
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -68,9 +80,8 @@
         @endif
 
         @yield('content')
-
-
     </div>
+
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container">
             <div class="row">
@@ -110,4 +121,6 @@
 
     <script src="{{asset('public/frontend')}}/js/bootstrap.bundle.min.js"></script>
 </body>
+
+
 </html>

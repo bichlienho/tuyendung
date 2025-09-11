@@ -1,7 +1,7 @@
 @extends('backend/layout')
 @section('content')
 
-    <div class="container mt-4">
+    <div class="container mt-4 mb-5">
         <h2>✏️ Sửa Việc Làm: {{ $vieclam->title }}</h2>
 
         <form action="{{ route('backend.vieclam.update', $vieclam->id) }}" method="POST" enctype="multipart/form-data">
@@ -24,8 +24,7 @@
                         <label for="logo" class="form-label">Logo công ty</label>
                         @if($vieclam->logo)
                             <div class="mb-2">
-                                <img src="{{ asset('storage/' . $vieclam->logo) }}" alt="Logo hiện tại" style="width: 80px; height: 80px; object-fit: cover; border-radius: 4px;">
-                            </div>
+                                <img src="{{asset('public/')}}/{{$vieclam->logo}}"  alt="{{ $vieclam->company }}" alt="Logo hiện tại" style="width: 80px; height: 80px; object-fit: cover; border-radius: 4px;">                            </div>
                         @endif
                         <input type="file" name="logo" id="logo" class="form-control">
                         <small class="text-muted">Chỉ chấp nhận: jpg, png, gif (tối đa 2MB). Để trống nếu không thay đổi.</small>

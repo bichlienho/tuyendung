@@ -46,23 +46,37 @@
                             </div>
 
                             <!-- Description -->
-                            <p class="text-muted small mb-3">
+                            <!-- <p class="text-muted small mb-3">
                                {{ preg_replace('/\. /', '.<br>', $v->description) }}
-                            </p>
+                            </p> -->
+
 
                             <!-- Skills Tags -->
-                            <div class="d-flex flex-wrap gap-2 mb-3">
+                            <!-- <div class="d-flex flex-wrap gap-2 mb-3">
                                 @foreach(explode(',', $v->requirements) as $req)
                                     <span class="badge bg-light text-dark border me-1">{{ trim($req) }}</span>
                                 @endforeach
+                            </div> -->
+
+                            
+                            <!-- Skills Tags fix-->
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                @foreach(explode(',', $v->requirements) as $req)
+                                    <span class="badge bg-light text-dark border me-1"
+                                        style="white-space: normal; word-wrap: break-word; max-width: 80%;">
+                                        {{ trim($req) }}
+                                    </span>
+                                @endforeach
                             </div>
 
+
+
                             <!-- Benefits -->
-                            <div class="d-flex flex-wrap gap-3 mb-3">
+                            <!-- <div class="d-flex flex-wrap gap-3 mb-3">
                                 <div class="d-flex align-items-center text-muted small">
                                     <i class="fas fa-coins me-1"></i> {{preg_replace('/\. /', '.<br>',$v->benefits)}}
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Buttons -->
                             <div class="d-flex justify-content-end gap-2">
